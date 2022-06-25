@@ -5,7 +5,14 @@
 export const environment = {
   production: false,
   environmentUrl: 'http://localhost:8080',
-  getListEmpleado: '/empleado/list-empleados'
+  /* Empleados */
+  getListEmpleado: '/empleado/list-empleados',
+  addEmpleado: '/empleado/add',
+  deleteEmpleado: '/empleado/delete/',
+  /* Tipo jornada */
+  getListTipoJornada: '/tipo-jornada/list-tipo-jornadas',
+  addTipoJornada: '/tipo-jornada/add',
+  deleteTipoJornada: '/tipo-jornada/delete/'
 };
 
 /*

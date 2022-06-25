@@ -2,11 +2,11 @@
 
     <mat-tab-group>
         <mat-tab label="Ingresar"> 
-            <app-form></app-form>    
+            <app-form [title]="titleForm" [fields]="fields" (sendData)="addEmpleado($event)"></app-form>    
         </mat-tab>
         <mat-tab label="Buscar"> Content 2 </mat-tab>
-        <mat-tab label="Lista">
-            {{empleados}}
+        <mat-tab label="Lista" (click)="getListEmpleados()">
+            <app-table [displayedColumns]="columns" [dataSource]="empleados" (sendData)="deleteEmpleado($event)"></app-table>
         </mat-tab>
     </mat-tab-group>
 

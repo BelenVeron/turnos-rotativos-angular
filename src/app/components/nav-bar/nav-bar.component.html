@@ -5,8 +5,7 @@
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#">Empleados</a>
-      <a mat-list-item href="#">Jornadas</a>
+      <a mat-list-item [routerLink]="item.url" *ngFor="let item of items, let i = index">{{item.nombre}}</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -19,7 +18,7 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>Manejo de empleados y jornadas</span>
+      <span>{{title}}</span>
     </mat-toolbar>
     <ng-content></ng-content>
   </mat-sidenav-content>

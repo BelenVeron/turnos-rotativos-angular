@@ -1,12 +1,12 @@
 export class Empleado {
 
-    id: number;
+    id: number | null;
     nombre: string;
     apellido: string;
     dni: string;
 
     constructor(
-        id: number,
+        id: number | null,
         nombre: string,
         apellido: string,
         dni: string

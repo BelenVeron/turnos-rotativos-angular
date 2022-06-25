@@ -24,15 +24,26 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import {MatTableModule} from '@angular/material/table';
+import { TableComponent } from './components/table/table.component';
+import { CommonModule } from '@angular/common';
+import { TipoJornadaComponent } from './pages/tipo-jornada/tipo-jornada.component';
+import { JornadaComponent } from './pages/jornada/jornada.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     EmpleadoComponent,
     NavBarComponent,
-    FormComponent
+    FormComponent,
+    TableComponent,
+    TipoJornadaComponent,
+    JornadaComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -53,7 +64,9 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatButtonModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

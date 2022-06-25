@@ -3,3 +3,12 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.success.mat-snack-bar-container {
+    background-color: aquamarine;
+    color: black;
+}
+.error.mat-snack-bar-container {
+    background-color: red;
+    color: aliceblue;
+}

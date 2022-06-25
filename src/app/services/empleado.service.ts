@@ -11,6 +11,8 @@ export class EmpleadoService {
 
   URL = environment.environmentUrl;
   getListEmpleado = environment.getListEmpleado;
+  addEmpleado = environment.addEmpleado;
+  deleteEmpleado = environment.deleteEmpleado;
 
   constructor(private httpClient: HttpClient) { }
 
@@ -18,8 +20,12 @@ export class EmpleadoService {
     return this.httpClient.get<Empleado[]>(this.URL + this.getListEmpleado);
   }
 
-  public addEmpleado(empleado: Empleado): Observable<Empleado> {
-    return this.httpClient.post<Empleado>(this.URL + this.getListEmpleado, empleado);
+  public add(empleado: Empleado): Observable<Empleado> {
+    return this.httpClient.post<Empleado>(this.URL + this.addEmpleado, empleado);
+  }
+
+  public delete(id: number): Observable<any> {
+    return this.httpClient.delete(this.URL + this.deleteEmpleado + id, {responseType: 'text'});
   }
 
 }

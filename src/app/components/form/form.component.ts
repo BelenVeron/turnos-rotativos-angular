@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-form',
@@ -8,24 +9,37 @@ import { FormBuilder } from '@angular/forms';
 })
 export class FormComponent implements OnInit {
 
-  empleadoForm = this.formBuilder.group({
+  @Input() title: string = '';
+  @Input() fields: any[] = [];
+  dataForm: FormGroup = new FormGroup({});
+
+  /* dataForm = this.formBuilder.group({
     nombre:[''],
     apellido:[''],
     dni:['']
-  })
+  }); */
+  @Output() sendData = new EventEmitter<any>();
   
   constructor(
     private formBuilder:FormBuilder
-  ) {}
-
-  ngOnInit(): void {
+  ) {
     
   }
-
   
+  ngOnInit(): void {
+    this.createDataForm();
+  }
+
+  createDataForm():void {
+    this.fields.forEach(field => {
+      let control: FormControl = new FormControl('', Validators.required);
+      this.dataForm.addControl(field.name, control);
+    });
+  }
 
   saveForm(): void {
-
+    this.sendData.emit(this.dataForm.value);
+    console.log(this.dataForm.value);
   }
 
 
