@@ -22,15 +22,30 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
 import {MatTableModule} from '@angular/material/table';
 import { TableComponent } from './components/table/table.component';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { TipoJornadaComponent } from './pages/tipo-jornada/tipo-jornada.component';
 import { JornadaComponent } from './pages/jornada/jornada.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { SearchComponent } from './components/search/search.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule, MAT_DATE_FORMATS } from '@angular/material/core';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatMomentDateModule} from '@angular/material-moment-adapter';
 
+export const DATE_FORMAT = {
+  parse: {
+      dateInput: 'DD-MM-YYYY',
+  },
+  display: {
+      dateInput: 'DD-MM-YYYY',
+      monthYearLabel: 'MMM YYYY',
+      dateA11yLabel: 'LL',
+      monthYearA11yLabel: 'MMMM YYYY',
+  },
+};
 
 @NgModule({
   declarations: [
@@ -40,7 +55,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     FormComponent,
     TableComponent,
     TipoJornadaComponent,
-    JornadaComponent
+    JornadaComponent,
+    SearchComponent
   ],
   imports: [
     CommonModule,
@@ -66,9 +82,15 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatNativeDateModule,
     HttpClientModule,
     MatTableModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    FlexLayoutModule,
+    MatPaginatorModule,
+    MatMomentDateModule
   ],
-  providers: [],
+  providers: [
+    DatePipe,
+    { provide: MAT_DATE_FORMATS, useValue: DATE_FORMAT }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

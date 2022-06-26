@@ -16,7 +16,8 @@ export class TipoJornadaComponent implements OnInit {
   title = 'Agregar Tipo de jornada';
   fields = FIELDS;
   message = {
-    getAllSuccess: 'El Tipo de jornada ha sido guardado'
+    addSuccess: 'El Tipo de jornada ha sido guardado',
+    deleteSuccess: 'El Tipo de jornada ha sido eliminado'
   }
 
   constructor(
@@ -35,7 +36,6 @@ export class TipoJornadaComponent implements OnInit {
     this.tipoJornadaService.getAll().subscribe(
       data => {
         this.tipoJornadas = data;
-        this.errorService.success(this.message.getAllSuccess);
       },
       err => {
         this.errorService.error(err.error);
@@ -53,11 +53,10 @@ export class TipoJornadaComponent implements OnInit {
     this.tipoJornadaService.add(tipoJornada).subscribe(
       data => {
         this.getListTipoJornadas();
-        
+        this.errorService.success(this.message.addSuccess);
       },
       err => {
-        console.log(err.error)
-        
+        this.errorService.error(err.error);
       }
     )
   }
@@ -68,6 +67,10 @@ export class TipoJornadaComponent implements OnInit {
       this.tipoJornadaService.delete(tipoJornada.id).subscribe(
         data => {
           this.getListTipoJornadas();
+          this.errorService.success(this.message.deleteSuccess);
+        },
+        err => {
+          this.errorService.error(err.error);
         }
       );
     }

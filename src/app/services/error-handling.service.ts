@@ -18,7 +18,7 @@ export class ErrorHandlingService {
   }
 
   success(message: string): void {
-    this.snackBar.open('Mensaje', 'Cerrar', {
+    this.snackBar.open(message, 'Cerrar', {
       duration: 2000,
       horizontalPosition: 'center',
       verticalPosition: 'top',

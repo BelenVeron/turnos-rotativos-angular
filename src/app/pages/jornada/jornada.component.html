@@ -1,12 +1,12 @@
 <app-nav-bar>
 
     <mat-tab-group>
-        <!-- <mat-tab label="Ingresar"> 
-            <app-form (sendData)="addTipoJornada($event)"></app-form>    
+        <mat-tab label="Ingresar"> 
+            <app-form [fields]="fields" (sendData)="addJornada($event)"></app-form>    
         </mat-tab>
-        <mat-tab label="Lista" (click)="getListTipoJornadas()">
-            <app-table [dataSource]="tipoJornadas" (sendData)="deleteTipoJornada($event)"></app-table>
-        </mat-tab> -->
+        <mat-tab label="Lista" (click)="getListJornadas()">
+            <app-table [dataSource]="jornadas" (sendData)="deleteJornada($event)"></app-table>
+        </mat-tab>
     </mat-tab-group>
 
 </app-nav-bar>

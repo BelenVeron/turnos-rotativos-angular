@@ -7,12 +7,18 @@ export const environment = {
   environmentUrl: 'http://localhost:8080',
   /* Empleados */
   getListEmpleado: '/empleado/list-empleados',
+  getListHoras: '/empleado/list-horas-cargadas/',
   addEmpleado: '/empleado/add',
   deleteEmpleado: '/empleado/delete/',
   /* Tipo jornada */
   getListTipoJornada: '/tipo-jornada/list-tipo-jornadas',
   addTipoJornada: '/tipo-jornada/add',
-  deleteTipoJornada: '/tipo-jornada/delete/'
+  deleteTipoJornada: '/tipo-jornada/delete/',
+  /* Jornada */
+  getListJornada: '/jornada/list-jornadas/',
+  addJornada: '/jornada/add/',
+  updateJornada: '/jornada/update/',
+  deleteJornada: '/jornada/delete/'
 };
 
 /*

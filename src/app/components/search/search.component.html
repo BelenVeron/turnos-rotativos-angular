@@ -1,0 +1,25 @@
+<form [formGroup]="dataForm" class="form-container">
+    <mat-card>
+      <mat-card-content>
+        <div fxLayout="row">
+            <div fxFlex="10"></div>
+           
+            <div fxLayout="row" fxFlex="50">
+                 <!-- Tipo input -->
+                <mat-form-field class="full-width">
+                <mat-label>{{data.label}}</mat-label>
+                  <input [formControlName]="data.name" matInput [placeholder]="data.value">
+                </mat-form-field>
+                 <!-- Boton de buscar -->
+                <mat-card-actions style="margin-left: 20px">
+                    <button (click)="searchForm()" mat-raised-button color="primary">Buscar</button>
+                </mat-card-actions>
+            </div>
+
+            <div fxFlex="40"></div>
+
+        </div>
+      </mat-card-content>
+      
+    </mat-card>
+  </form>

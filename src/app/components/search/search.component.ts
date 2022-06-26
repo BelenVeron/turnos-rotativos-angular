@@ -1,16 +1,14 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
-
 @Component({
-  selector: 'app-form',
-  templateUrl: './form.component.html',
-  styleUrls: ['./form.component.css']
+  selector: 'app-search',
+  templateUrl: './search.component.html',
+  styleUrls: ['./search.component.css']
 })
-export class FormComponent implements OnInit {
+export class SearchComponent implements OnInit {
 
-  @Input() title: string = '';
-  @Input() fields: any[] = [];
+  @Input() data: any = {};
   dataForm: FormGroup = new FormGroup({});
   @Output() sendData = new EventEmitter<any>();
   
@@ -25,14 +23,11 @@ export class FormComponent implements OnInit {
   }
 
   createDataForm():void {
-    this.fields.forEach(field => {
-      let control: FormControl = new FormControl('', Validators.required);
-      this.dataForm.addControl(field.name, control);
-    });
+      this.dataForm.addControl(this.data.name, new FormControl('', Validators.required));
   }
 
-  saveForm(): void {
-    //this.sendData.emit(this.dataForm.value);
+  searchForm(): void {
+    this.sendData.emit(this.dataForm.value);
     console.log(this.dataForm.value);
   }
 
