@@ -9,7 +9,7 @@
             <app-table [hidePaginator]="true" [displayedColumns]="columnsHoras" [dataSource]="horasCargadas"></app-table>
         </mat-tab>
         <mat-tab label="Lista de empleados" (click)="getListEmpleados()">
-            <app-table [displayedColumns]="columns" [dataSource]="empleados" (sendData)="deleteEmpleado($event)"></app-table>
+            <app-table [displayedColumns]="columns" [dataSource]="empleados" (sendData)="action($event)"></app-table>
         </mat-tab>
     </mat-tab-group>
 

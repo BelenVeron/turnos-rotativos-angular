@@ -1,34 +1,37 @@
 export const FIELDS = [
   {
-    type: 'input',
     name: 'dni',
-    value: 'Dni'
+    value: 'Dni',
   },
   {
     type: 'select',
-    name: 'tipo',
+    name: 'tipoJornada',
     label: 'Seleccionar',
     options: [
         {value: 'Turno Normal'},
         {value: 'Turno Extra'},
         {value: 'Dia Libre'},
         {value: 'Vacaciones'}
-    ]
+    ],
+    model: ''
   },
   {
     type: 'fecha',
     name: 'fecha',
-    value: 'Fecha'
+    value: 'Fecha',
+    model: ''
   },
   {
     type: 'hora',
     name: 'horaEntrada',
-    value: 'Hora de entrada'
+    value: 'Hora de entrada',
+    model: ''
   },
   {
     type: 'hora',
     name: 'horaSalida',
-    value: 'Hora de salida'
+    value: 'Hora de salida',
+    model: ''
   },
   {
     type: 'save-button',

@@ -4,8 +4,9 @@
         <mat-tab label="Ingresar"> 
             <app-form [fields]="fields" (sendData)="addJornada($event)"></app-form>    
         </mat-tab>
-        <mat-tab label="Lista" (click)="getListJornadas()">
-            <app-table [dataSource]="jornadas" (sendData)="deleteJornada($event)"></app-table>
+        <mat-tab label="Lista">
+            <app-search [data]="dataSearch" (sendData)="getList($event)"></app-search>
+            <app-table [dataSource]="jornadas" [displayedColumns]="columns" (sendData)="action($event)"></app-table>
         </mat-tab>
     </mat-tab-group>
 

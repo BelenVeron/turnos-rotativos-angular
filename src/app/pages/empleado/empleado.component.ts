@@ -14,7 +14,7 @@ export class EmpleadoComponent implements OnInit {
 
   titleForm = 'Agregar empleado'
   empleados: Empleado[] = [];
-  columns: string[] = ['nombre', 'apellido', 'dni', 'edit'];
+  columns: string[] = ['nombre', 'apellido', 'dni', 'delete'];
   columnsHoras: string[] = ['Tipo de jornada', 'Horas cargadas'];
   horasCargadas: HorasCargadas[] = [];
   fields = FIELDS;
@@ -80,6 +80,17 @@ export class EmpleadoComponent implements OnInit {
         this.errorService.error(err.error);
       }
     )
+  }
+
+  action(data: any): void {
+    switch (data.type) {
+      case 'delete':
+          this.deleteEmpleado(data.data);
+        break;
+    
+      default:
+      break;
+    }
   }
 
   /* Elimina empleado */

@@ -32,7 +32,7 @@ export class FormComponent implements OnInit {
   }
 
   saveForm(): void {
-    //this.sendData.emit(this.dataForm.value);
+    this.sendData.emit(this.dataForm.value);
     console.log(this.dataForm.value);
   }
 

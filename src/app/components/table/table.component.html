@@ -2,13 +2,13 @@
   <table mat-table [dataSource]="dataSource">
     
     <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns">
-      <th mat-header-cell *matHeaderCellDef> {{column|titlecase}} </th>
+      <th mat-header-cell *matHeaderCellDef> {{toWords(column)|titlecase}} </th>
       <td mat-cell *matCellDef="let element"> 
         <!-- Muestra el valor en base al nombre de la columna que se asigna al key del objeto -->
         {{element[column] }} 
-        <!-- Si la columna es boton de edit -->
-        <button *ngIf="column === 'edit'" (click)="deleteElement(element)" mat-icon-button color="primary" aria-label="Example icon button with a home icon">
-          <mat-icon>delete</mat-icon>
+        <!-- Si la columna es boton -->
+        <button *ngIf="isButton(column)" (click)="sendElement(element, column)" mat-icon-button color="primary" aria-label="Example icon button with a home icon">
+          <mat-icon>{{column}}</mat-icon>
         </button>    
       </td>
     </ng-container>
@@ -19,9 +19,9 @@
   </table>
   
   <mat-paginator [fxHide]="hidePaginator" [pageSizeOptions]="[5, 10, 20]"
-  showFirstLastButtons 
-  aria-label="Select page of periodic elements">
-</mat-paginator>
-<div *ngIf="!dataSource.length">No hay elementos</div>
+    showFirstLastButtons 
+    aria-label="Select page of periodic elements">
+  </mat-paginator>
+  <div *ngIf="!dataSource.length">No hay elementos</div>
 </div>
 

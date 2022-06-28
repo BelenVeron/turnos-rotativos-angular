@@ -104,5 +104,8 @@
       }
     }
   },
-  "defaultProject": "tpAngular"
+  "defaultProject": "tpAngular",
+  "cli": {
+    "analytics": "ed087221-1abc-4c4d-8cc0-16e7dbbacbaf"
+  }
 }

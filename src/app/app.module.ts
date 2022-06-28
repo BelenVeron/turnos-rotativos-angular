@@ -34,6 +34,9 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, MAT_DATE_FORMATS } from '@angular/material/core';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatMomentDateModule} from '@angular/material-moment-adapter';
+import {NgxMatTimepickerModule} from 'ngx-mat-timepicker';
+import { ModalComponent } from './components/modal/modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 export const DATE_FORMAT = {
   parse: {
@@ -41,9 +44,7 @@ export const DATE_FORMAT = {
   },
   display: {
       dateInput: 'DD-MM-YYYY',
-      monthYearLabel: 'MMM YYYY',
-      dateA11yLabel: 'LL',
-      monthYearA11yLabel: 'MMMM YYYY',
+      
   },
 };
 
@@ -56,8 +57,10 @@ export const DATE_FORMAT = {
     TableComponent,
     TipoJornadaComponent,
     JornadaComponent,
-    SearchComponent
+    SearchComponent,
+    ModalComponent
   ],
+  entryComponents: [ModalComponent],
   imports: [
     CommonModule,
     BrowserModule,
@@ -85,7 +88,9 @@ export const DATE_FORMAT = {
     MatSnackBarModule,
     FlexLayoutModule,
     MatPaginatorModule,
-    MatMomentDateModule
+    MatMomentDateModule,
+    NgxMatTimepickerModule,
+    MatDialogModule
   ],
   providers: [
     DatePipe,

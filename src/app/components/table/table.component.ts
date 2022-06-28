@@ -19,8 +19,37 @@ export class TableComponent implements OnInit {
     this._MatPaginatorIntl.itemsPerPageLabel = 'Items por pagina';
   }
 
-  deleteElement(element: any):void {
-    this.sendData.emit(element);
+  sendElement(element: any, button: string):void {
+    let data = {
+      type: button,
+      data: element
+    }
+    this.sendData.emit(data);
+  }
+
+  /* Convierte el camel case en palabras */
+  toWords(str: string) {
+    const regex = /([A-Z])(?=[A-Z][a-z])|([a-z])(?=[A-Z])/g;
+    return str.replace(regex, '$& ');
+  }
+
+  /* Devuelve true si es un boton, en este caso
+     edit y delete, pero se puede agregar mas
+  */
+  isButton(type: string): boolean {
+    let result = false;
+    switch (type) {
+      case 'edit':
+        result = true
+      break;
+      case 'delete':
+        result = true
+      break;
+    
+      default:
+        break;
+    }
+    return result;
   }
 
 }
