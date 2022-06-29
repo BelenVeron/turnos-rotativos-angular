@@ -54,7 +54,6 @@ export class EmpleadoComponent implements OnInit {
     this.empleadoService.getHoras(data.dni).subscribe(
       data => {
         this.horasCargadas = data;
-        console.log(data)
         this.errorService.success(this.message.searchSuccess);
       },
       err => {

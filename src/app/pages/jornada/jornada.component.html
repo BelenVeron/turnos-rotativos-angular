@@ -2,7 +2,7 @@
 
     <mat-tab-group>
         <mat-tab label="Ingresar"> 
-            <app-form [fields]="fields" (sendData)="addJornada($event)"></app-form>    
+            <app-form [fields]="fieldsAdd" (sendData)="addJornada($event)"></app-form>    
         </mat-tab>
         <mat-tab label="Lista">
             <app-search [data]="dataSearch" (sendData)="getList($event)"></app-search>

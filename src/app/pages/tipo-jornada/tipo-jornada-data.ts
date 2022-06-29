@@ -4,10 +4,10 @@ export const FIELDS = [
       name: 'tipo',
       label: 'Seleccionar',
       options: [
-          {value: 'Turno Normal'},
-          {value: 'Turno Extra'},
-          {value: 'Dia Libre'},
-          {value: 'Vacaciones'}
+          'Turno Normal',
+          'Turno Extra',
+          'Dia Libre',
+          'Vacaciones'
       ]
     },
     {

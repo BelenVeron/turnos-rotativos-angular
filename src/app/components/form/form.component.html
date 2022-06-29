@@ -16,7 +16,7 @@
             <mat-form-field *ngIf="field.type === 'select'" appearance="fill">
               <mat-label>{{field.label}}</mat-label>
               <mat-select [formControlName]="field.name">
-                <mat-option [value]="option.value" *ngFor="let option of field.options">{{option.value}}</mat-option>
+                <mat-option [value]="option" *ngFor="let option of field.options">{{option}}</mat-option>
               </mat-select>
             </mat-form-field>
 

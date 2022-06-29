@@ -45,7 +45,6 @@ export class TipoJornadaComponent implements OnInit {
 
   /* Agrega tipoJornada */
   addTipoJornada(data: any): void {
-    console.log(data)
     let tipoJornada = new TipoJornada (
       null,
       data.tipo,

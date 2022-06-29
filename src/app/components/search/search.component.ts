@@ -28,7 +28,6 @@ export class SearchComponent implements OnInit {
 
   searchForm(): void {
     this.sendData.emit(this.dataForm.value);
-    console.log(this.dataForm.value);
   }
 
 

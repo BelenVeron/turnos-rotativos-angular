@@ -32,7 +32,6 @@ export class ModalComponent implements OnInit {
     @Optional() @Inject(MAT_DIALOG_DATA) public data: Data,
     public tipoJornadaEnum: TipoJornadaEnumService
     ) {
-    console.log(data);
     this.fields = data.fields;
     this.title = data.title;
     this.values = data.values;
@@ -40,12 +39,11 @@ export class ModalComponent implements OnInit {
 
   ngOnInit(): void {
     this.createDataForm();
-    console.log('init')
   }
 
   createDataForm():void {
     this.fields.forEach(field => {
-      if (field.model) {
+      if (field.type) {
         let control: FormControl = new FormControl(field.model, Validators.required);
         this.dataForm.addControl(field.name, control);
         this.getValue(field);
@@ -70,8 +68,14 @@ export class ModalComponent implements OnInit {
   }
 
   saveForm(): void {
+    Object.assign(this.dataForm.value, this.fields[0]);
+   
     this.sendData.emit(this.dataForm.value);
-    console.log(this.dataForm.value);
+    
+    this.dialogRef.close({ data: {
+      values: this.dataForm.value,
+      dni: this.fields[0].dni,
+    } });
   }
 
   ngOnDestroy(): void {

@@ -23,7 +23,6 @@ export class EmpleadoService {
   }
 
   public getHoras(dni: number): Observable<HorasCargadas[]> {
-    console.log(dni)
     return this.httpClient.get<HorasCargadas[]>(this.URL + this.getListHoras + dni);
   }
 
