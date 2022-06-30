@@ -9,7 +9,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import { LayoutModule } from '@angular/cdk/layout';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
@@ -68,7 +67,6 @@ export const DATE_FORMAT = {
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
-    LayoutModule,
     MatButtonModule,
     MatSidenavModule,
     MatListModule,
