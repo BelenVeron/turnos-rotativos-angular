@@ -8,9 +8,12 @@
           <div class="col-md-6" *ngFor="let field of fields">
 
             <!-- Tipo input -->
-            <mat-form-field *ngIf="field.type === 'input'" class="full-width">
+            <mat-form-field style="margin-top: 20px;" *ngIf="field.type === 'input'" class="full-width">
               <input [formControlName]="field.name" matInput [placeholder]="field.value">
             </mat-form-field>
+            <ng-container   *ngFor="let validations of field.validations">
+              <mat-error style="font-size: 12px;" *ngIf="hasError(field.name, validations.type)">{{validations.message}}</mat-error>
+            </ng-container>
 
             <!-- Tipo select -->
             <mat-form-field *ngIf="field.type === 'select'" appearance="fill">
@@ -44,7 +47,7 @@
 
             <!-- Boton de guardar -->
             <mat-card-actions *ngIf="field.type === 'save-button'">
-              <button (click)="saveForm()" mat-raised-button color="primary">{{field.value}}</button>
+              <button [disabled]="!dataForm.valid" (click)="saveForm()" mat-raised-button color="primary">{{field.value}}</button>
             </mat-card-actions>
           </div>
         </div>

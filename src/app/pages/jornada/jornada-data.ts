@@ -1,5 +1,3 @@
-import { TipoJornada } from "src/app/models/tipo-jornada"
-
 export const FIELDS_ADD = [
   {
     type: 'input',

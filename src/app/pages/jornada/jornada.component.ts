@@ -18,7 +18,7 @@ import { TipoJornadaEnumService } from 'src/app/services/tipo-jornada-enum.servi
 export class JornadaComponent implements OnInit {
 
   jornadas: Jornada[] = [];
-  columns: string[] = ['tipoJornada', 'fecha', 'horaEntrada', 'horaSalida', 'edit'];
+  columns: string[] = ['tipoJornada', 'fecha', 'horaEntrada', 'horaSalida', 'edit', 'delete'];
   title = 'Agregar jornada';
   fieldsAdd = FIELDS_ADD;
   fieldsUpdate = FIELDS_UPDATE;
