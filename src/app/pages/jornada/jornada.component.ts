@@ -102,7 +102,6 @@ export class JornadaComponent implements OnInit {
 
   /* Edita Jornada */
   editJornada(data: any): void {
-    console.log(data)
     if (this.dni) {
       this.jornadaService.update(data.id, this.createJornada(data)).subscribe(
         data => {
