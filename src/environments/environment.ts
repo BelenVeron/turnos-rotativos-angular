@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   //environmentUrl: 'http://localhost:8080',
-  environmentUrl: 'https://app-portfolio-backend-1.herokuapp.com',
+  environmentUrl: 'https://turnos-rotativos.herokuapp.com',
   /* Empleados */
   getListEmpleado: '/empleado/list-empleados',
   getListHoras: '/empleado/list-horas-cargadas/',
@@ -16,7 +16,7 @@ export const environment = {
   addTipoJornada: '/tipo-jornada/add',
   deleteTipoJornada: '/tipo-jornada/delete/',
   /* Jornada */
-  getListJornada: '/jornada/list-jornadas',
+  getListJornada: '/jornada/list-jornadas/',
   addJornada: '/jornada/add/',
   updateJornada: '/jornada/update/',
   deleteJornada: '/jornada/delete/'

@@ -18,7 +18,10 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>{{title}}</span>
+      <div fxFlex="100" fxLayout="row" fxLayoutAlign="space-between center" >
+        <span>{{title}}</span>
+        <mat-icon style="cursor: pointer;" (click)="openModal()">help_outline</mat-icon>
+      </div>
     </mat-toolbar>
     <ng-content></ng-content>
   </mat-sidenav-content>

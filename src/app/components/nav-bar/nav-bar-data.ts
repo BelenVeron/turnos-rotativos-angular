@@ -1,6 +1,6 @@
 export const ITEMS = [
     {
-      url: '/',
+      url: '/empleado',
       nombre: 'Empleado',
       title: 'Manejo de empleados'
     },

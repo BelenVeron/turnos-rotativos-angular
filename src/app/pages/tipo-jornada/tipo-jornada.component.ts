@@ -12,7 +12,7 @@ import { FIELDS } from './tipo-jornada-data';
 export class TipoJornadaComponent implements OnInit {
 
   tipoJornadas: TipoJornada[] = [];
-  columns: string[] = ['tipo', 'edit'];
+  columns: string[] = ['tipo', 'delete'];
   title = 'Agregar Tipo de jornada';
   fields = FIELDS;
   message = {
@@ -58,6 +58,20 @@ export class TipoJornadaComponent implements OnInit {
         this.errorService.error(err.error);
       }
     )
+  }
+
+  action(data: any): void {
+    switch (data.type) {
+      case 'delete':
+          this.deleteTipoJornada(data.data);
+      break;
+      case 'edit':
+          //this.openDialog(data.data);
+      break;
+    
+      default:
+      break;
+    }
   }
 
   /* Elimina tipoJornada */

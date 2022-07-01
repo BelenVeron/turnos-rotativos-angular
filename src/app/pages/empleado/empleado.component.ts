@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalCardComponent } from 'src/app/components/modal-card/modal-card.component';
 import { Empleado } from 'src/app/models/empleado';
 import { HorasCargadas } from 'src/app/models/horas-cargadas';
 import { EmpleadoService } from 'src/app/services/empleado.service';
@@ -29,12 +31,24 @@ export class EmpleadoComponent implements OnInit {
     searchSuccess: 'Se listan las horas cargadas por tipo de jornada'
   }
 
-  constructor(private empleadoService: EmpleadoService,
-    private errorService: ErrorHandlingService
+  constructor(
+    private empleadoService: EmpleadoService,
+    private errorService: ErrorHandlingService,
+    private dialog: MatDialog,
   ) {}
 
   ngOnInit(): void {
     this.getListEmpleados();
+  }
+
+  openModal(): void {
+     // abre el modal y envia los datos y configuracion
+     var ref = this.dialog.open(ModalCardComponent, {
+      width: '50%',
+      data: {
+        title: 'Editar Jornada'
+      }
+    });
   }
 
   /* Lista los empleados */

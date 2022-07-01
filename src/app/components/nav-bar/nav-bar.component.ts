@@ -4,6 +4,9 @@ import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { ITEMS } from './nav-bar-data';
+import { MODAL_DATA } from 'src/app/pages/index/index-data';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalCardComponent } from '../modal-card/modal-card.component';
 
 @Component({
   selector: 'app-nav-bar',
@@ -15,6 +18,8 @@ export class NavBarComponent {
   /* Items del navegador */
   items = ITEMS;
   title: string = 'Manejo de empleados';
+  titleModal = 'Guía y descripción de la aplicación'
+  modalData = MODAL_DATA;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -24,7 +29,8 @@ export class NavBarComponent {
 
   constructor(
     private breakpointObserver: BreakpointObserver,
-    public router: Router
+    public router: Router,
+    private dialog: MatDialog
     ) {
     this.setTitle();
   }
@@ -35,6 +41,19 @@ export class NavBarComponent {
         this.title = item.title;
       }
     })
+  }
+
+  openModal(): void {
+    // abre el modal y envia los datos y configuracion
+    var ref = this.dialog.open(ModalCardComponent, {
+      width: '50%',
+      autoFocus: false,
+      maxHeight: '80vh', 
+      data: {
+        title: this.title,
+        data: this.modalData
+      }
+    });
   }
 
 }

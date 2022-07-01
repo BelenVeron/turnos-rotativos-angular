@@ -1,0 +1,23 @@
+<mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title style="font-size: 24px;">{{title}}</mat-card-title>
+    </mat-card-header>
+  
+    <mat-card-content *ngFor="let data of data">
+        <!-- Subtitulo -->
+        <mat-card-subtitle *ngIf="data.subtitle" style="font-size: 20px; margin-top: 40px;">{{data.subtitle}}</mat-card-subtitle>
+        <!-- Imagen -->
+        <div fxLayout="row" fxLayoutAlign="space-around center" >
+            <img fxLayoutAlign="center center" mat-card-image [ngStyle]="{'width.px': data.size}" *ngIf="data.image" [src]="data.image" alt="Photo of a Shiba Inu">
+        </div>
+        <!-- Descripcion -->
+        <p  style="white-space: pre-wrap" >{{data.description}}</p>
+        <!-- link -->
+        <a mat-flat-button [href]="data.link" target="_blank">{{data.link}}</a>
+    </mat-card-content>
+   
+    <mat-card-actions>
+      <button mat-button (click)="close()">Cerrar</button>
+    </mat-card-actions>
+  </mat-card>

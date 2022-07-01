@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-search',
@@ -12,9 +12,7 @@ export class SearchComponent implements OnInit {
   dataForm: FormGroup = new FormGroup({});
   @Output() sendData = new EventEmitter<any>();
   
-  constructor(
-    private formBuilder:FormBuilder
-  ) {
+  constructor() {
     
   }
   
@@ -22,10 +20,43 @@ export class SearchComponent implements OnInit {
     this.createDataForm();
   }
 
+  /* 
+    Crea el input con las validaciones que se necesita.
+  */
   createDataForm():void {
       this.dataForm.addControl(this.data.name, new FormControl('', Validators.required));
+      if (this.data.validations && this.data.validations.length > 0) {
+        this.setValidation(this.data.validations, this.data.name);
+      }
   }
 
+   /* 
+    Agrega las validaciones segun se necesiten al campo
+    correspondiente
+  */
+  setValidation(validations: any, name: string): void {
+    validations.forEach((element: any) => {
+      switch (element.type) {
+        case 'required':
+          this.dataForm.get(name)?.addValidators(Validators.required)
+        break;
+        case 'minlength':
+          this.dataForm.get(name)?.addValidators(Validators.minLength(element.value))
+        break;
+        case 'maxlength':
+          this.dataForm.get(name)?.addValidators(Validators.maxLength(element.value))
+        break;
+      
+        default:
+        break;
+      }
+    });
+  }
+
+  /* 
+    Se envia el valor del dato a travez del evento
+    sendData
+  */
   searchForm(): void {
     this.sendData.emit(this.dataForm.value);
   }

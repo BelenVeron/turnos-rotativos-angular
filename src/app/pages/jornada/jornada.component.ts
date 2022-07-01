@@ -102,6 +102,21 @@ export class JornadaComponent implements OnInit {
 
   /* Edita Jornada */
   editJornada(data: any): void {
+    console.log(data)
+    if (this.dni) {
+      this.jornadaService.update(data.id, this.createJornada(data)).subscribe(
+        data => {
+
+          if (this.dni) {
+            this.getListJornadas();
+          }
+          this.errorService.success(this.message.addSuccess);
+        },
+        err => {
+          this.errorService.error(err.error);
+        }
+      )
+    }
   }
 
   /* Abre el modal con los valores de la jornada

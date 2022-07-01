@@ -5,7 +5,7 @@
             <app-form [title]="title" [fields]="fields" (sendData)="addTipoJornada($event)"></app-form>    
         </mat-tab>
         <mat-tab label="Lista" (click)="getListTipoJornadas()">
-            <app-table [displayedColumns]="columns" [dataSource]="tipoJornadas" (sendData)="deleteTipoJornada($event)"></app-table>
+            <app-table [displayedColumns]="columns" [dataSource]="tipoJornadas" (sendData)="action($event)"></app-table>
         </mat-tab>
     </mat-tab-group>
 

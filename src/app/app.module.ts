@@ -36,6 +36,8 @@ import {MatMomentDateModule} from '@angular/material-moment-adapter';
 import {NgxMatTimepickerModule} from 'ngx-mat-timepicker';
 import { ModalComponent } from './components/modal/modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ModalCardComponent } from './components/modal-card/modal-card.component';
+import { IndexComponent } from './pages/index/index.component';
 
 export const DATE_FORMAT = {
   parse: {
@@ -57,7 +59,9 @@ export const DATE_FORMAT = {
     TipoJornadaComponent,
     JornadaComponent,
     SearchComponent,
-    ModalComponent
+    ModalComponent,
+    ModalCardComponent,
+    IndexComponent
   ],
   entryComponents: [ModalComponent],
   imports: [
